@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome to painter page</title>
+</head>
+ 
+<body>
+
+    <h1>Painter entry - Sandhya Paladugu</h1>
+
+    <h2>Getting input</h2>
+
+    <form>
+        <label for="form1_SecretString">The hidden painter name </label>
+        <input type ="password" id="form1_SecretString" name="form1_SecretString" value="Monet”"> <br>
+
+        <label for="form1_GuessPrinter">Guess the painter </label>
+        <input type ="text" id="form1_GuessPrinter" name="form1_GuessPrinter" checked> <br>
+
+        <input type="button" onclick="checkPainter()" value="Check the Guess">
+    </form>
+
+
+    <p id="result">RESULT</p>
+
+    <script> 
+
+    var good = 0;
+    var oops = 0;
+
+    function checkPainter (){
+        console.log("Getting form values")
+        var hidPainter = document.getElementById("form1_SecretString").value
+        var guessPaint = document.getElementById("form1_GuessPrinter").value
+        confirmed = confirm("Are these the values? "+hidPainter+" and "+guessPaint)
+        
+        out = document.getElementById("result")
+        if (hidPainter === guessPaint) {
+        good++;
+        alert("You got it right!");
+        out.innerHTML = good;
+      } else {
+        oops++;
+        out.innerHTML = alert("Sorry");
+        out.innerHTML = oops;
+      }
+
+    }
+    </script>
+
+</body>
+</html> 
