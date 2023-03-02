@@ -28,24 +28,32 @@
     <script> 
     var good = 0;
     var oops = 0;
+    let count = 0;
     function checkPainter (){
         console.log("Getting form values")
         var hidPainter = document.getElementById("form1_SecretString").value
         var guessPaint = document.getElementById("form1_GuessPrinter").value
-
-        
         out = document.getElementById("result")
         if (hidPainter === guessPaint) {
-        good++;
-        alert("You got it right!");
-        out.innerHTML = "good count :" + good;
-      } else {
-        oops++;
-        out.innerHTML = alert("Sorry");
-        out.innerHTML = "oops count :" + oops;
+          good++;
+          alert("You got it right!");
+          out.innerHTML = "good count :" + good;
+        } 
+        else {
+          oops++;
+          count++;
+          if(count > 10 ){
+              document.getElementById("result").onclick=guessingGame()
+          }
+          out.innerHTML = alert("Sorry");
+          out.innerHTML = "oops count :" + oops;
+        }
       }
-    }
+      function guessingGame(){
+        out.innerHTML = alert("orry, ran out of guesses");
+      }
     </script>
+
     
     <script>
       var useImage = 1;
