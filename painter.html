@@ -19,20 +19,20 @@
 
         <input type="button" onclick="checkPainter()" value="Check the Guess">
     </form>
-
-
     <p id="result">RESULT</p>
+    
+    <div id = "container">
+      <img src="Abies.jpg" id = "image" onclick = "selectImage()" style=" height: 100px; width: 100px;" alt="Abies">
+    </div>
 
     <script> 
-
     var good = 0;
     var oops = 0;
-
     function checkPainter (){
         console.log("Getting form values")
         var hidPainter = document.getElementById("form1_SecretString").value
         var guessPaint = document.getElementById("form1_GuessPrinter").value
-        confirmed = confirm("Are these the values? "+hidPainter+" and "+guessPaint)
+
         
         out = document.getElementById("result")
         if (hidPainter === guessPaint) {
@@ -44,9 +44,26 @@
         out.innerHTML = alert("Sorry");
         out.innerHTML = "oops count :" + oops;
       }
-
     }
     </script>
+    
+    <script>
+      var useImage = 1;
+      function selectImage (){
+        switch (useImage){
+          case 1 : useImage = useImage+1;
+            document.getElementById('image').src = "Dahilas.jpg"
+            break;
+          case 2: useImage = useImage+1;
+            document.getElementById('image').src = "poppy.jpg";
+            break;
+          case 3: useImage = 1;
+            document.getElementById('image').src = "Abies.jpg";
+            break;
+        }
+      }
+    </script>
+    
 
 </body>
 </html> 
